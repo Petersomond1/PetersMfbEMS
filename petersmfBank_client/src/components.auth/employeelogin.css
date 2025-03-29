@@ -1,0 +1,133 @@
+root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f0f0; /* Light gray background */
+  }
+  
+  .loginForm {
+    background-color: rgba(1, 32, 93, 0.8); /* Semi-transparent background for contrast */
+    color: white; /* White text for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 30px; /* Add padding inside the form */
+    border-radius: 15px; /* Rounded corners */
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Limit the maximum width */
+    text-align: center; /* Center-align text */
+}
+/* Need to increase on height of bg-img so as to have the background image cover the screen appropriately, but unable. use of cover not good hence contain. */
+  .loginDoor {
+    background-image: url('https://dd8du22h6ze2n.cloudfront.net/Images/logo2.png'); /* Your background image */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Fix the image to the viewport */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-size: contain; /* use contain as cover will ensure the image covers the entire screen hiding the edgea */
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Flexbox for centering content */
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+
+/* .loginDoor { */
+    /* background: url('/Images/logo2.png'); */
+    /* background-image: url('https://petersemployeemgmtsystem-s3.s3.amazonaws.com/bg.jpg'); */
+    /* background-image: url('https://dd8du22h6ze2n.cloudfront.net/Images/logo2.png'); */
+    /* background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 0.5)),  url('https://dd8du22h6ze2n.cloudfront.net/Images/logo2.png'); */
+    /* margin-bottom: auto;
+    background-position:0% 0%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  } */
+
+  
+
+.loginForm {
+    background-color: rgba(1, 32, 93, 0.6);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  /* button to display danger */
+.button-danger-display {
+    color: yellow; /* White text for contrast against the dark background */
+    padding: 10px; /* Padding for spacing around the error message */
+    border-radius: 0; /* Sharp corners as suggested in Source 1 */
+    display: inline-block; /* Makes the div behave like an inline element while allowing width and height */
+    width: 100%; /* Full width for better visibility */
+    margin-top: 10px; /* Space above the div for better layout */
+    font-size: 13px; /* Font size for readability */
+    line-height: 20px; /* Line height for better readability */
+    text-align: center; /* Center the text within the div */
+    opacity: 1; /* Full opacity for visibility */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity changes, useful for showing/hiding the error message */
+   }
+
+    /* Additional styling for when the error message is hidden or not needed */
+ .button-danger-display.hidden {
+    opacity: 0;
+    visibility: hidden;
+   }
+
+   
+.button-danger-display {
+    color: yellow;
+    padding: 10px;
+    border-radius: 0;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .button-danger-display.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  
+
+.login_submit_btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .6rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: blue;
+    width: 50%;
+    justify-content: center;
+    margin-left: 22%;
+    display: inline-block;
+   }
+   

@@ -6,6 +6,7 @@ import { IoPeople } from "react-icons/io5";
 import { BiLogOutCircle } from "react-icons/bi";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./dashboard.css";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 

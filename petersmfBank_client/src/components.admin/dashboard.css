@@ -1,0 +1,507 @@
+
+  /* Styling for dashboard */
+  .dashboard-container-1 {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+
+  .dashboard-container-2 {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+   }
+
+  .dashboard-container-3 {
+      display: grid; 
+      flex-wrap: nowrap; 
+     }
+    
+  .dashboard-container-4 {
+    /* Default behavior: No fixed width, allowing content to dictate width */
+    display:flex;
+    flex-wrap:nowrap; 
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .dashboard-container-profile
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    color:blueviolet;
+    min-height: 100vh;
+  }
+   
+   /* Media query for medium screens, making the column take up 3 out of 12 columns */
+   @media (min-width: 768px) {
+    .dashboard-container-4 {
+       width: calc(25% - 15px); /* 15px accounts for padding if Bootstrap's grid system is based on 15px gutter */
+    }
+   }
+   
+   /* Media query for extra-large screens, making the column take up 2 out of 12 columns */
+   @media (min-width: 1200px) {
+    .dashboard-container-4 {
+       width: calc(100% - 15px); /* 16.6667% for 2 out of 12 columns, 15px for padding */
+    }
+   }
+   
+   /* Media query for small screens, applying padding on the x-axis */
+   @media (max-width: 575.98px) {
+    .dashboard-container-4 {
+       padding-left: 0.5rem; /* 0.5rem is Bootstrap's default padding size for small screens */
+       padding-right: 0.5rem;
+    }
+   }
+
+   .dashboard-container-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    color: #fff;
+    min-height: 100vh;
+    background-color: gray
+   }
+   
+   @media (min-width: 576px) {
+    .dashboard-container-5 {
+       align-items: flex-start;
+    }
+   }
+   
+
+   .navbar-1 {
+    color:blue; /* Equivalent to text-white */
+    text-decoration: none; /* Equivalent to text-decoration-none */
+    font-size: 1.5rem; /* Equivalent to fs-5 */
+    background-color:burlywood; /* Example darker background color, adjust based on your theme */
+    display:grid;
+    text-align: center;
+   }
+
+    
+    .dashboard-link-5.active {
+      color: #fff; /* Equivalent to active:text-white */
+    }
+
+    .dashboard-link-5.active:hover, .dashboard-link-5.active:focus {
+      color: #fff; /* Equivalent to active:hover:text-white */
+    }
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: calc(100% - 50px); /* Adjust height as needed */
+  width: 100%;
+  /* text-align: center; */
+}
+  
+   
+  .footnavbar{
+    background-color: gray; /* Example darker background color, adjust based on your theme */
+    display:grid;
+    flex: 1 0 auto; /* This is a general approach to make the div behave like a Bootstrap column */
+    align-items: center;
+    justify-items:center;
+    text-align: center;
+  }
+
+
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+   }
+   
+   .table th,
+   .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+   }
+   
+   .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+   }
+   
+   .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+   }
+
+    .table .table {
+      background-color: #fff;
+    }
+
+    .table-bordered {
+      border: 1px solid #dee2e6;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+      border: 1px solid #dee2e6;
+    }
+
+    .table-bordered thead th,
+    .table-bordered thead td {
+      border-bottom-width: 2px;
+    }
+
+    .table-borderless th,
+    .table-borderless td,
+    .table-borderless thead th,
+    .table-borderless tbody + tbody {
+      border: 0;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .table-primary,
+    .table-primary > th,
+    .table-primary > td {
+      background-color: #b8daff;
+    }
+
+    .table-hover .table-primary:hover {
+      background-color: #9fcdff;
+    }
+
+    .table-hover .table-primary:hover > td,
+    .table-hover .table-primary:hover > th {
+      background-color: #9fcdff;
+    }
+
+    .table-secondary,
+    .table-secondary > th,
+    .table-secondary > td {
+      background-color: #d6d8db;
+    }
+
+    .table-hover .table-secondary:hover {
+      background-color: #c8cbcf;
+    }
+
+    .table-hover .table-secondary:hover > td,
+    .table-hover .table-secondary:hover > th {
+      background-color: #c8cbcf;
+    } 
+
+    .table-success,
+    .table-success > th,
+    .table-success > td {
+      background-color: #c3e6cb;
+    }
+
+    .table-hover .table-success:hover {
+      background-color: #b1dfbb;
+    }
+
+    .table-hover .table-success:hover > td,
+    .table-hover .table-success:hover > th {
+      background-color: #b1dfbb;
+    }
+
+    .table-info,
+    .table-info > th,
+
+    .table-info > td {
+      background-color: #bee5eb;
+    }
+
+    .table-hover .table-info:hover {
+      background-color: #abdde5;
+    }
+
+    .table-hover .table-info:hover > td,
+    .table-hover .table-info:hover > th {
+      background-color: #abdde5;
+    }
+
+    .table-warning,
+    .table-warning > th,
+
+    .table-warning > td {
+      background-color: #ffeeba;
+    }
+
+
+    .table-hover .table-warning:hover {
+      background-color: #ffe8a1;
+    }
+
+    .table-hover .table-warning:hover > td,
+    .table-hover .table-warning:hover > th {
+      background-color: #ffe8a1;
+    }
+
+    .table-danger,
+    .table-danger > th,
+    .table-danger > td {
+      background-color: #f5c6cb;
+    }
+
+    .table-hover .table-danger:hover {
+      background-color: #f1b0b7;
+    }
+
+    .table-hover .table-danger:hover > td,
+    .table-hover .table-danger:hover > th {
+      background-color: #f1b0b7;
+    }
+
+    .table-light,
+    .table-light > th,
+    .table-light > td {
+      background-color: #fdfdfe;
+    }
+
+    .table-hover .table-light:hover {
+      background-color: #ececf6;
+    }
+
+    .table-hover .table-light:hover > td,
+    .table-hover .table-light:hover > th {
+      background-color: #ececf6;
+    }
+
+    .table-dark,
+    .table-dark > th,
+    .table-dark > td {
+      background-color: #c6c8ca;
+    }
+
+    .table-hover .table-dark:hover {
+      background-color: #b9bbbe;
+    }
+    
+    .table-hover .table-dark:hover > td,
+    .table-hover .table-dark:hover > th {
+      background-color: #b9bbbe;
+    }
+
+   .employee_image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+   }
+
+   .employee_profile_image {
+    border-radius: 50%; /* This makes the image circular */
+    width: 100px; /* Example width, adjust as needed */
+    height: 100px; /* Example height, adjust as needed */
+    object-fit: cover; /* This ensures the image covers the area without stretching */
+   }
+
+   .view-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+   }
+
+    .edit-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .delete-button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .add-employee {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+   /* Container for the entire profile */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile image */
+.profile-container .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* Profile information */
+.profile-container .profile-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile-container .profile-info .info-field {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.5rem 0;
+}
+
+.profile-container .profile-info .info-field:last-child {
+  border-bottom: none;
+}
+
+.profile-container .profile-info .info-field .field-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-container .profile-info .info-field .field-value {
+  color: #666;
+} 
+
+/* .............add-employee.css.............*/
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.login_submit_btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .6rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  width: 100%;
+  margin-bottom: 2px;
+  font-size: 20px;
+  color: blue;
+  width: 50%;
+  justify-content: center;
+  margin-left: 22%;
+  display: inline-block;
+}
+
+.loginDoor {
+  /* background: url('/Images/logo2.png'); */
+  /* background-image: url('https://petersemployeemgmtsystem-s3.s3.amazonaws.com/bg.jpg'); */
+  background-image: url('https://dd8du22h6ze2n.cloudfront.net/Images/logo2.png');
+  background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 0.5)),  url('https://dd8du22h6ze2n.cloudfront.net/Images/logo2.png');
+  margin-bottom: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 125%;
+}
+
+.loginForm {
+  background-color: rgba(1, 32, 93, 0.6);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.button-danger-display {
+  color: yellow;
+  padding: 10px;
+  border-radius: 0;
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.button-danger-display.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.login-button {
+  font-size: 20px;
+  color: blue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid blue;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: blue;
+  color: white;
+}

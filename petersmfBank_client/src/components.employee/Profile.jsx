@@ -1,8 +1,11 @@
 import React from 'react'
+import '../App.css'
 
 const Profile = () => {
+
+
   return (
-    <div>Profile</div>
+    <div className='box'>Profile</div>
   )
 }
 

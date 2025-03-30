@@ -10,13 +10,13 @@ const login = async (email, password, role) => {
   try {
     console.log("Post payload:", { email, password, role });
     const response = await axios.post(
-      `${API_BASE_URL}/employee/login`,
+      `${API_BASE_URL}/auth/login`,
       { email, password, role },
       { withCredentials: true }
     );
     return response.data;
   } catch (error) {
-        {/* </Route> */}
+   
     console.error("Login error:", error);
     return { loginStatus: false, Error: "Login failed" };
   }
@@ -37,43 +37,29 @@ const EmployeeLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const authResponse = await axios.get(`${API_BASE_URL}/auth/login`, {
-        withCredentials: true,
-      });
-
-      if (authResponse.data.authenticated) {
-        console.log("Already logged in");
+      const result = await login(values.email, values.password, values.role);
+  
+      if (result.loginStatus) {
+        localStorage.setItem("valid", true);
+        if (result.firstTime) {
+          alert(
+            "This is your first time logging in. Please change your password."
+          );
+        }
         navigate(
-          authResponse.data.role === "admin"
+          result.role === "admin"
             ? "/dashboard"
-            : `/employee_profile/${authResponse.data.id}`
+            : `/employee_profile/${result.id}`
         );
       } else {
-        const result = await login(values.email, values.password, values.role);
-
-        if (result.loginStatus) {
-          localStorage.setItem("valid", true);
-          if (result.firstTime) {
-            alert(
-              "This is your first time logging in. Please change your password."
-            );
-          }
-          navigate(
-            result.role === "admin"
-              ? "/dashboard"
-              : `/employee_profile/${result.id}`
-          );
-        } else {
-          setError(result.Error + "; Please try again");
-        }
+        setError(result.Error + "; Please try again");
       }
     } catch (err) {
-      console.error("Auth Check Error:", err);
+      console.error("Login Error:", err);
     }
   };
-
   return (
     <div className="loginDoor"
     >

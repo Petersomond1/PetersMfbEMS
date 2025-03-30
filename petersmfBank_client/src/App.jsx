@@ -1,5 +1,6 @@
 import './app.css'
-// import Dashboard from './Components/Dashboard'
+import Dashboard from './components.admin/Dashboard.jsx'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import Home from './Components/Home'
 //import Employee from './Components/Employee'
@@ -13,7 +14,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import DeleteEmployee from './Components/DeleteEmployee'
 import EmployeeLogin from './components.auth/EmployeeLogin.jsx'
 // import Employee_Profile from './Components/Employee_Profile.jsx'
-// import ProtectRoute from './components.auth/ProtectRoute.jsx'
+import ProtectRoute from './components.auth/ProtectRoute.jsx'
 // import ForgotPassword from './Components/ForgotPassword.jsx'
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<EmployeeLogin />} />
         {/* <Route path="/employee_profile/:id" element={<Employee_Profile />} /> */}
         {/* <Route path="/forgot_password" element={<ForgotPassword />} /> */}
-        {/* <Route path="/dashboard" element={<ProtectRoute><Dashboard /></ProtectRoute>}> */}
+        <Route path="/dashboard" element={<ProtectRoute><Dashboard /></ProtectRoute>}>
           {/* <Route path='' element={<Home />} /> */}
           {/* <Route path='/dashboard/employee' element={<Employee />} /> */}
           {/* <Route path='/dashboard/department' element={<Department />} /> */}
@@ -34,7 +35,7 @@ function App() {
           {/* <Route path='/dashboard/view_employee/:id' element={<ViewEmployee />} /> */}
           {/* <Route path='/dashboard/edit_employee/:id' element={<EditEmployee />} /> */}
           {/* <Route path='/dashboard/delete_employee/:id' element={<DeleteEmployee />} /> */}
-       {/* </Route> */}
+       </Route>
       </Routes>
     </BrowserRouter>
   )

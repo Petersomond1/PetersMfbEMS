@@ -12,7 +12,7 @@ const Employee = () => {
          ]);
 
     useEffect(() => {
-        axios.get(`${API_BASE_URL}/auth/employee`)
+        axios.get(`${API_BASE_URL}/admin/employee`)
             .then(result => {
                 if (result.data.Status) {
                     setEmployee(result.data.employee);
@@ -59,8 +59,8 @@ const Employee = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {employee.map(emp => (
-                        <tr key={emp.id}>
+                    {employee && employee.map((emp, index) => (
+                        <tr key={emp.id || index}>
                             <td>{emp.id}</td>
                             <td>{emp.name}</td>
                             <td>{emp.email}</td>

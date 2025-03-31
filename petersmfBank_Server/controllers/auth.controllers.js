@@ -124,3 +124,48 @@ export const logoutUser = (req, res) => {
     res.clearCookie("token");
     return res.json({ Status: true });
 };
+
+// GET SUMMARY COUNT CONTROLLER
+export const getSummaryCount = async (req, res) => {
+    try {
+        const [adminCount] = await pool.query("SELECT COUNT(*) AS count FROM admin");
+        const [employeeCount] = await pool.query("SELECT COUNT(*) AS count FROM employeelist");
+
+        return res.json({
+            success: true,
+            summary: {
+                adminCount: adminCount[0].count,
+                employeeCount: employeeCount[0].count,
+            },
+        });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ success: false, message: "Query error" });
+    }
+};
+
+// GET ADMIN DETAILS CONTROLLER
+export const getAdminDetails = async (req, res) => {
+    try {
+        const [admins] = await pool.query("SELECT id, name, email FROM admin");
+        return res.json({ success: true, admins });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ success: false, message: "Query error" });
+    }
+};
+
+// ADD ADMIN CONTROLLER
+export const addAdmin = async (req, res) => {
+    const { name, email, password } = req.body;
+
+    try {
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        const sql = "INSERT INTO admin (name, email, password, hashedPassword) VALUES (?, ?, ?, ?)";
+        await pool.query(sql, [name, email, password, hashedPassword]);
+        return res.json({ Status: true });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ Status: false, Error: "Query error" });
+    }
+};

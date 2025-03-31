@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { loginUser, forgotPassword, resetPassword, logoutUser } from "../controllers/auth.controllers.js";
+import { getSummaryCount, addAdmin, getAdminDetails } from "../controllers/auth.controllers.js";
 
 const router = express.Router();
 
@@ -28,5 +29,11 @@ router.post("/login", loginUser);
 router.post("/forgot_password", forgotPassword);
 router.post("/reset_password", resetPassword);
 router.get("/logout", logoutUser);
+
+router.get("/summaryCount", getSummaryCount);
+router.get("/adminDetails", getAdminDetails);
+
+router.post("/add_admin", addAdmin);
+
 
 export default router;

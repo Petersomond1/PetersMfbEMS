@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 const Add_Employee = () => {
   const [department, setDepartment] = useState([]);
 
   const navigate = useNavigate();
 
-
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/auth/department`)
+      .get(`${API_BASE_URL}/admin/department`, { withCredentials: true })
       .then((result) => {
         if (result.data.Status) {
           setDepartment(result.data.department);
@@ -41,41 +39,31 @@ const Add_Employee = () => {
   });
 axios.defaults.withCredentials = true;
 
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   const formData = new FormData();
-//   Object.keys(employee).forEach((key) => {
-//       formData.append(key, employee[key]);
-//   });
-
-//   await axios
-//       .post("http://localhost:3000/auth/add_employee", formData, {
-//           headers: {
-//               'Content-Type': 'multipart/form-data'
-//           }
-//       })
-//       .then(result => {
-//           if (result.data.Status) {
-//               alert(result.data.Status);
-//               navigate('/dashboard/employee')
-//           } else {
-//               alert(result.data.Error);
-//           }
-//       })
-//       .catch((err) => console.log(err));
-// };
-
 const handleSubmit = async (e) => {
   e.preventDefault();
+  // const formData = new FormData();
+  // Object.keys(employee).forEach((key) => {
+  //   formData.append(key, employee[key]);
+  // });
+
   const formData = new FormData();
-  Object.keys(employee).forEach((key) => {
-    formData.append(key, employee[key]);
-  });
+formData.append("name", employee.name);
+formData.append("email", employee.email);
+formData.append("password", employee.password);
+formData.append("position", employee.position);
+formData.append("department", employee.department);
+formData.append("salary", employee.salary);
+formData.append("address", employee.address);
+formData.append("employee_Image", employee.employee_Image); // ✅ key name must match multer field
+formData.append("employment_status", employee.employment_status);
+formData.append("employment_date", employee.employment_date);
+formData.append("department_id", employee.department_id);
+
 
   await axios
-    .post(`${API_BASE_URL}/auth/add_employee`, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
+    .post(`${API_BASE_URL}/admin/add_employee`, formData, {
+      // headers: { "Content-Type": "multipart/form-data" },
+      withCredentials: true,
     })
     .then((result) => {
       if (result.data.Status) {
@@ -302,11 +290,14 @@ const handleSubmit = async (e) => {
               id="inputDepartment_id"
               className="form-control"
               onChange={(e) =>
-                setEmployee({ ...employee, department_id: e.target.value })
+                setEmployee({
+                  ...employee,
+                  department_id: e.target.value || 2, // Default to 2 for dev case
+                })
               }
               style={{ formControl: "select", width: "100%", rounded: "50%" }}
             >
-              <option>Choose...</option>
+              <option value="">Choose...</option>
               {department.map((department) => (
                 <option key={department.id} value={department.id}>
                   {department.name}

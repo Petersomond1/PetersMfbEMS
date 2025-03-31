@@ -4,7 +4,8 @@ import bcrypt from "bcryptjs";
 import cookieParser from "cookie-parser";
 import crypto from "crypto";
 import dotenv from "dotenv";
-import AWS from "aws-sdk";
+// import AWS from "aws-sdk";
+import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 import multer from "multer";
 import pool from "../utils/db.js"; 
 import cors from "cors";
@@ -37,10 +38,12 @@ router.options('/login', cors(corsOptions));
 
 
 // Configure AWS S3
-const s3 = new AWS.S3({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+const s3 = new S3Client({
   region: process.env.AWS_REGION,
+  credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
 });
 
 // Configure multer for file uploads
@@ -59,6 +62,14 @@ router.get("/employee_profile/:id", async (req, res) => {
   }
 });
 
-
+router.get("/admin/employee", async (req, res) => {
+  const sql = "SELECT * FROM employeelist";
+  try {
+    const [rows] = await pool.query(sql);
+    return res.json({ Status: true, employees: rows });
+  } catch (err) {
+    return res.json({ Status: false, Error: "Query error" });
+  }
+});
 
 export default router;

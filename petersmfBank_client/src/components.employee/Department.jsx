@@ -9,7 +9,7 @@ const Department = () => {
     const [department, setDepartment] = useState([]);
 
     useEffect(() => {
-        axios.get(`${API_BASE_URL}/auth/department`)
+        axios.get(`${API_BASE_URL}/admin/department`)
         .then(result => {
             if (result.data.Status) {
                 setDepartment(result.data.department);

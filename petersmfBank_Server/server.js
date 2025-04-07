@@ -15,10 +15,11 @@ dotenv.config();
 const corsOptions = {
     origin: [
         'https://www.microfinancebank.petersomond.com',
-        'http://localhost:5173',
-        'https://petersemployeemgmtsystem-s3.s3.amazonaws.com',
+         'https://dd8du22h6ze2n.cloudfront.net',
+        //'http://localhost:5173',
+        //'https://petersemployeemgmtsystem-s3.s3.amazonaws.com',
         //'https://ec2-3-82-189-9.compute-1.amazonaws.com:3000',
-       'http://localhost:3000'
+       //'http://localhost:3000'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,

@@ -6,8 +6,8 @@ import { FcDepartment } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import '../App.css'; 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; // Use environment variable
-const REACT_APP_IMAGE_BASE_URL = import.meta.env.VITE_REACT_APP_IMAGE_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; 
+const IMAGE_BASE_URL = import.meta.env.VITE_REACT_APP_IMAGE_BASE_URL;
 
 const Employee_Profile = () => {
     axios.defaults.withCredentials = true;
@@ -78,7 +78,7 @@ const Employee_Profile = () => {
                     <h1>Employee Profile</h1>
                     <div className="profile-info">
                     <img 
-    src={employee.image ? `${REACT_APP_IMAGE_BASE_URL}/${employee.image}` : 'https://via.placeholder.com/150'}
+    src={employee.image ? `${IMAGE_BASE_URL}/${employee.image}` : 'https://via.placeholder.com/150'}
     alt="Employee Image"
     style={{ borderRadius: '50%', width: '150px', height: '150px', objectFit: 'cover' }} 
 />
